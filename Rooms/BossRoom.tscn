@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=4 uid="uid://xjw5n46r3r0t"]
+
+[ext_resource type="PackedScene" uid="uid://dh4qcuyp0l1fp" path="res://Rooms/room.tscn" id="1_lbqwf"]
+[ext_resource type="PackedScene" uid="uid://bwyclun7xugwu" path="res://Rooms/door.tscn" id="2_npeaa"]
+[ext_resource type="PackedScene" uid="uid://bnf3qolxt2nov" path="res://Rooms/SlimeBossRoom.tscn" id="3_npeaa"]
+[ext_resource type="PackedScene" uid="uid://cssm34m2c66pp" path="res://Rooms/ChestEndGame.tscn" id="4_6qejb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qejb"]
+size = Vector2(64, 20)
+
+[node name="BossRoom" instance=ExtResource("1_lbqwf")]
+boss_room = true
+
+[node name="Pisos" parent="." index="0"]
+tile_map_data = PackedByteArray("AAAQAAcAAAADAAEAAAAPAAcAAAADAAEAAAAPAAAAAAADAAEAAAAPAAEAAAADAAEAAAAPAAIAAAADAAEAAAAPAAMAAAADAAEAAAAPAAQAAAADAAEAAAAPAAUAAAADAAEAAAAPAAYAAAADAAEAAAAQAAAAAAADAAEAAAAQAAEAAAADAAEAAAAQAAIAAAADAAEAAAAQAAMAAAADAAEAAAAQAAQAAAADAAEAAAAQAAUAAAADAAEAAAAQAAYAAAADAAEAAAARAAAAAAABAAcAAAAOAAAAAAAFAAcAAAASAAAAAAADAAQAAAANAAAAAAAEAAQAAAASAAEAAAADAAUAAAASAAIAAAADAAUAAAASAAMAAAADAAUAAAASAAQAAAADAAUAAAASAAUAAAADAAUAAAASAAYAAAADAAUAAAASAAcAAAADAAYAAAARAAcAAAADAAEAAAANAAEAAAAEAAUAAAANAAIAAAAEAAUAAAANAAMAAAAEAAUAAAANAAQAAAAEAAUAAAANAAUAAAAEAAUAAAANAAYAAAAEAAUAAAANAAcAAAAEAAYAAAAOAAcAAAADAAEAAAAOAAIAAAADAAEAAAAOAAMAAAADAAEAAAAOAAQAAAADAAEAAAAOAAUAAAADAAEAAAAOAAYAAAADAAEAAAARAAIAAAADAAEAAAARAAMAAAADAAEAAAARAAQAAAADAAEAAAARAAUAAAADAAEAAAARAAYAAAADAAEAAAAOAAEAAAAHAAQAAAARAAEAAAAHAAQAAAAPABgAAAADAAEAAAAPABkAAAADAAEAAAAQABgAAAADAAEAAAAQABkAAAADAAEAAAAPABoAAAADAAEAAAAPABsAAAADAAEAAAAPABwAAAADAAEAAAAPAB0AAAADAAEAAAAPAB4AAAADAAEAAAAPAB8AAAADAAEAAAAQABoAAAADAAEAAAAQABsAAAADAAEAAAAQABwAAAADAAEAAAAQAB0AAAADAAEAAAAQAB4AAAADAAEAAAAQAB8AAAADAAEAAAAOABgAAAAEAAUAAAAOABkAAAAEAAUAAAAOABoAAAAEAAUAAAAOABsAAAAEAAUAAAAOABwAAAAEAAUAAAAOAB0AAAAEAAUAAAAOAB4AAAAEAAUAAAAOAB8AAAAEAAUAAAARABgAAAADAAUAAAARABkAAAADAAUAAAARABoAAAADAAUAAAARABsAAAADAAUAAAARABwAAAADAAUAAAARAB0AAAADAAUAAAARAB4AAAADAAUAAAARAB8AAAADAAUAAAA=")
+
+[node name="Paredes" parent="." index="1"]
+tile_map_data = PackedByteArray("AAARAAcAAAABAAYAAAAOAAcAAAAFAAYAAAA=")
+
+[node name="Position2D" type="Marker2D" parent="Entrance" index="0"]
+position = Vector2(248, 504)
+
+[node name="Position2D2" type="Marker2D" parent="Entrance" index="1"]
+position = Vector2(264, 504)
+
+[node name="Door" parent="Doors" index="0" instance=ExtResource("2_npeaa")]
+position = Vector2(256, 16)
+
+[node name="PlayerDetector" parent="." index="6"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
+position = Vector2(256, 44)
+shape = SubResource("RectangleShape2D_6qejb")
+
+[node name="SlimeBossRoom" parent="." index="7" instance=ExtResource("3_npeaa")]
+position = Vector2(16, 128)
+
+[node name="ChestEndGame" parent="." index="8" instance=ExtResource("4_6qejb")]
+position = Vector2(256, 64)

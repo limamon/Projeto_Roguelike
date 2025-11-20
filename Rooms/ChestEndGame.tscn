@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cssm34m2c66pp"]
+
+[ext_resource type="Script" uid="uid://bvkxfwbbo4yvx" path="res://Rooms/chestendgame.gd" id="1_p5ecn"]
+[ext_resource type="Texture2D" uid="uid://36mhom6oqshi" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/props_itens/chest_closed_anim_f0.png" id="2_p5ecn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppmrp"]
+size = Vector2(132, 36)
+
+[node name="ChestEndGame" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_p5ecn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_p5ecn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_ppmrp")
+
+[connection signal="body_entered" from="." to="." method="_on_Stairs_body_entered"]
