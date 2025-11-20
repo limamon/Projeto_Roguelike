@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _on_start_game_pressed() -> void:
 	SavedData.reset_data()
-	SceneTransistor.start_transition_to("res://Game.tscn")
+	SceneTransistor.start_transition_to("res://game.tscn")
 
 func _on_back_options_pressed() -> void:
 	main_buttons.visible = true

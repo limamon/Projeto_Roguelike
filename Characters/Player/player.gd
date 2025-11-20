@@ -34,13 +34,13 @@ func _process(_delta: float) -> void:
 
 func get_input() -> void:
 	mov_direction = Vector2.ZERO
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_S"):
 		mov_direction += Vector2.DOWN
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_A"):
 		mov_direction += Vector2.LEFT
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_D"):
 		mov_direction += Vector2.RIGHT
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_W"):
 		mov_direction += Vector2.UP
 		
 	if not current_weapon.is_busy():
